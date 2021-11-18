@@ -1,0 +1,22 @@
+{
+  "name": "01-crm-javascript---node",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "parcel public/*.html",
+    "prod": "parcel prod public/*.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "express": "^4.17.1",
+    "joi": "^17.4.2",
+    "mongoose": "^6.0.13",
+    "morgan": "^1.10.0",
+    "parcel-bundler": "^1.12.5"
+  }
+}
