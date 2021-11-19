@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --font: 'Poppins', sans-serif;
+    --dark: #202020;
+    --white: #fefefe;
+    --red: #c70c0c;
+    --violeta: #4d0b97;
+}
+.container-body{
+    background-color: #fefefe;
+}
+.container-body .aside-menu{
+    width: 300px;
+    height: 100vh;
+    background-color: var(--dark);
+    transition: all .5s ease-in-out;
+}
+.container-body .aside-menu .menu {
+    display: grid;
+    grid-template-rows: 65px 80% 64px;
+}
+.container-body .aside-menu .header > .title-aside{
+    font: 600 1.2rem var(--font);
+    transition: all .5s ease-in-out;
+}
+.container-body .aside-menu .header .menu-logo,
+.container-body .aside-menu .footer .icon-search{
+    width: 35px;
+    cursor: pointer;
+}
+.container-body .aside-menu .nav .items{
+    background-color: var(--dark);
+    color: var(--white);
+    width: 100%;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+}
+.container-body .aside-menu .nav .items:hover{
+    background-color: var(--violeta);
+}
+.container-body .aside-menu .nav .items .icon-user{
+    width: 25px;
+}
+.container-body .aside-menu .nav .items .ancla{
+    font: 400 1rem var(--font);
+    transition: all .5s ease-in-out;
+}
+.container-body .aside-menu .footer .input{
+    transition: all .5s ease-in-out;
+    font: 400 .9rem var(--font)
+}
+.container-body .aside-menu .footer .input::placeholder{
+    font: 400 .8rem var(--font)
+}
+.container-body .menu-principal{
+    width: 75%;
+}
+.container-body .menu-principal .title-index{
+    font: 400 1.5rem var(--font)
+}
+.container-body .menu-principal .logo-crm{
+    width: 75%;
+}
+.hidden{
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
