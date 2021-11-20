@@ -65,6 +65,24 @@
 .container-body .menu-principal .logo-crm{
     width: 75%;
 }
+
+/* Estilos de formulario.html*/
+.container-body .menu-principal .card-form{
+    width: 50%;
+}
+.container-body .menu-principal .card-form .label-input{
+    font: 400 1rem var(--font)
+}
+
+.container-body .menu-principal .card-form .form-control:focus{
+    border-color: inherit;
+}
+.container-body .menu-principal .card-form .buttons .btn{
+    cursor: pointer;
+}
+.container-body .menu-principal .card-form .form-control .buttons .btn:hover{
+    background-color: var(--violeta);
+}
 .hidden{
     opacity: 0;
     overflow: hidden;
