@@ -6,13 +6,14 @@ const router = express.Router();
 // Crea las validaciones para el formulario
 const schema = Joi.object({
     name    : Joi.string().min(4).max(50),
-    email   : Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
-    company : Joi.string().min(5).max(35).required(),
+    email   : Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
+    company : Joi.string().min(5).max(35),
     phone   : Joi.number().min(8)
 })
 
 // Creamos el nuevo usurario y lo guardamos en la base de dato
 const createUser = async (body) => {
+    console.log('Guardando...')
     let user = new Users({
         name    : body.name,
         email   : body.email,
@@ -51,20 +52,24 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     let body = req.body;
 
-    const { value, error } = schema.validate({
+    let {value,  error } = schema.validate({
         name    : body.name,
         email   : body.email,
         company : body.company,
         phone   : body.phone
     });
 
+    console.log(body)
     if (!error) {
-        let data = createUser(body)
-        data.then(() => {
-            console.log(`Usuario agregado`)
-            res.send('Se ha añadido a la bases de datos !')
+        let data = createUser(body);
+        
+        data.then( (data) => {
+            console.log('Se envio la base de datos')
+            res.send(data)
         }).catch(err => {
-            res.send(`Error: ${err}`)
+            res.status(400).json({
+                error: err
+            })
         })
         
         return
