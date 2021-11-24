@@ -12,16 +12,18 @@
 }
 .container-body{
     background-color: #fefefe;
+    height: 100vh;
 }
 .container-body .aside-menu{
-    width: 300px;
-    height: 100vh;
     background-color: var(--dark);
     transition: all .5s ease-in-out;
+    width: 300px;
+    height: 100%;
 }
 .container-body .aside-menu .menu {
     display: grid;
-    grid-template-rows: 65px 80% 64px;
+    grid-template-rows: 100px 75% 10%;
+    position: static;
 }
 .container-body .aside-menu .header > .title-aside{
     font: 600 1.2rem var(--font);
@@ -42,7 +44,8 @@
 .container-body .aside-menu .nav .items:hover{
     background-color: var(--violeta);
 }
-.container-body .aside-menu .nav .items .icon-user{
+.container-body .aside-menu .nav .items .icon-user,
+.container-body .menu-principal .alert .icon-alert{
     width: 25px;
 }
 .container-body .aside-menu .nav .items .ancla{
@@ -57,7 +60,7 @@
     font: 400 .8rem var(--font)
 }
 .container-body .menu-principal{
-    width: 75%;
+    width: 80%;
 }
 .container-body .menu-principal .title-index{
     font: 400 1.5rem var(--font)
@@ -82,6 +85,20 @@
 }
 .container-body .menu-principal .card-form .form-control .buttons .btn:hover{
     background-color: var(--violeta);
+}
+.container-body .menu-principal .alert .title-alert{
+    font: 400 1rem var(--font)
+}
+.container-body .menu-principal .cards-client{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+    row-gap: 15px;
+    column-gap: 30px;
+}
+
+.msgErr{
+    background-color:  var(--red);
+    font: 600 1rem var(--font)
 }
 .hidden{
     opacity: 0;
