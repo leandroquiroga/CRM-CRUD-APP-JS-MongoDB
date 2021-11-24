@@ -2,6 +2,28 @@ import { selector } from "./main";
 import "regenerator-runtime/runtime";
 
 let form = selector('#form');
+let name = selector('#name');
+let email = selector('#email');
+let company = selector('#company');
+let phone = selector('#phone');
+
+const validateForm = () => {
+    let ok = false;
+
+    console.log(ok)
+    if (name.value === '' || email.value === '' || company.value === '' || phone.value === '') {
+        let message = selector('.msgErr');
+        message.textContent = 'Todos los campos son obligatorios';
+
+        setTimeout(() => {
+            message.textContent = ''
+        }, 3000)
+        return ok;
+    }
+
+    return ok = true;
+}
+
 let objectFormData = {
     name: '',
     email: '',
@@ -15,10 +37,15 @@ const sendDataDB = async (json) => {
             method: 'Post',
             body: json
         })
-        let status = await result.status
-        if (status === '200') {
-            console.log('Enviado');
-            return
+        if (result.status === 200) {
+            let alert = selector('#alert-success');
+            let title = selector('.title-alert')
+            alert.classList.remove('visually-hidden');
+            title.textContent = `Se ha añadido un nuevo cliente a la bases de datos`
+            setTimeout(() => {
+                alert.classList.add('visually-hidden');
+                title.textContent = ''
+            }, 2500);
         }
     } catch (error) {
         console.log(error)
@@ -29,7 +56,7 @@ const dataSend = () => {
     let email = selector('#email');
     let company = selector('#company');
     let phone = selector('#phone');
-    
+
     objectFormData = {
         name: name.value,
         email: email.value,
@@ -38,16 +65,12 @@ const dataSend = () => {
     }
 
     let objJSON = JSON.stringify(objectFormData)
-
-    // console.log(objJSON)
     sendDataDB(objJSON)
 }
-
-
-
-    // btnDisabled();
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    dataSend()
+    if (validateForm()) {
+        dataSend()
+        return
+    };
 })
-
