@@ -45,24 +45,29 @@
                 </footer>
             </aside>
         </section>
-        <section class="menu-principal p-2 d-flex flex-column justify-content-center align-items-center">
+        <section class="menu-principal p-2 d-flex flex-column justify-content-evenly align-items-center">
+            <article class="w-75 alert alert-success d-flex justify-content-center align-items-center p-2 visually-hidden" role="alert" id="alert-success">
+                <img src="./assets/check-circle.svg" alt="check" class="icon-alert mx-2">
+                <div class="title-alert"></div>
+            </article>
             <article class="p-2">
                 <h1 class="text-center title-index">Registro de compañia</h1>
             </article>
             <article class="card card-form shadow-lg p-2">
-                <form action="" id="form" class="form-control p-3 d-flex flex-column justify-content-center">
+                <form id="form" class="form-control p-3 d-flex flex-column justify-content-center">
                     <label for="name" class="label-input"> Ingrese el nombre completo: </label>
-                    <input name="name" type="text" id="name" class="form-control my-2 shadow-none p-2" required>
+                    <input name="name" type="text" id="name" class="form-control my-2 shadow-none p-2" >
                     <label for="email" class="label-input">Ingrese el email: </label>
-                    <input name="email" type="text" id="email" class="form-control my-2 shadow-none p-2" required>
+                    <input name="email" type="text" id="email" class="form-control my-2 shadow-none p-2" >
                     <label for="company" class="label-input"> Ingrese la compañia: </label>
-                    <input name="comapy" type="text" id="company" class="form-control my-2 shadow-none p-2" required>
+                    <input name="comapy" type="text" id="company" class="form-control my-2 shadow-none p-2" >
                     <label for="phone" class="label-input"> Ingrese el telefono: </label>
-                    <input name="phone" type="tel" id="phone" class="form-control my-2 shadow-none p-2" required>
+                    <input name="phone" type="tel" id="phone" class="form-control my-2 shadow-none p-2" >
                     <div class="buttons d-flex justify-content-around">
                         <button type="submit" class="btn btn-dark" id="send_form"> Registrar </button>
                         <button type="reset" class="btn btn-dark" id="reset"> Resetear </button>
                     </div>
+                    <div class="msgErr mt-3 text-white d-flex justify-content-center rounded-3"></div>
                 </form>
             </article>
         </section>
