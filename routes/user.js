@@ -43,9 +43,19 @@ const updateUser = async (email, body) => {
     return user;
 
 }
+
+// retorna todos los tados de la base de datos
+/* const data = async () => {
+    let arr = await Users.find().lean();
+    return arr;
+} */
 // GET
-router.get('/', (req, res) => {
-    res.send('Clientes')
+router.get('/', async (req, res) => {
+
+    const task = await Users.find()
+    // envia en forma de arreglo los datos de la base de datos
+
+    res.send(JSON.stringify(task))
 });
 
 // POST
@@ -63,9 +73,9 @@ router.post('/', (req, res) => {
     if (!error) {
         let data = createUser(body);
         
-        data.then( (data) => {
+        data.then( () => {
             console.log('Se envio la base de datos')
-            res.send(data)
+            res.send('Recibido la peticion')
         }).catch(err => {
             res.status(400).json({
                 error: err
