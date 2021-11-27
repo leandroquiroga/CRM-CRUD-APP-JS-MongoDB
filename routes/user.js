@@ -7,7 +7,7 @@ const router = express.Router();
 const schema = Joi.object({
     name    : Joi.string().min(4).max(50),
     email   : Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
-    company : Joi.string().min(5).max(35),
+    puesto  : Joi.string().min(5).max(35),
     phone   : Joi.number().min(8)
 })
 
@@ -17,7 +17,7 @@ const createUser = async (body) => {
     let user = new Users({
         name    : body.name,
         email   : body.email,
-        company : body.company,
+        puesto  : body.puesto,
         phone   : body.phone
     })
 
@@ -34,8 +34,9 @@ const deleteUser = async (email) => {
 const updateUser = async (email, body) => {
     let user = await Users.findOneAndUpdate({ "email": email }, {
         $set: {
+            name    : body.name,
             email   : body.email,
-            company : body.company,
+            puesto  : body.puesto,
             phone   : body.phone,
         }
     }, { new: true });
@@ -65,7 +66,7 @@ router.post('/', (req, res) => {
     let {value,  error } = schema.validate({
         name    : body.name,
         email   : body.email,
-        company : body.company,
+        puesto  : body.puesto,
         phone   : body.phone
     });
 
@@ -96,8 +97,9 @@ router.put('/:email', (req, res) => {
 
 
     const { value, error } = schema.validate({
+        name    : body.name,
         email   : body.email,
-        company : body.company,
+        puesto  : body.puesto,
         phone   : body.phone
     })
 
@@ -120,7 +122,7 @@ router.delete('/:email', (req, res) => {
     let user = deleteUser(email);
 
     user.then(() => {
-        res.send('Usuario elminado')
+        res.send(`El usuario: ${email} ha sido eliminado`)
     }).catch(err => {
         res.status(400).send(`Error: ${err}`)
     })
