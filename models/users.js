@@ -9,7 +9,7 @@ const schemaUser = new mongoose.Schema({
         type: String,
         required: true,
     },
-    company: {
+    puesto: {
         type: String,
         required: true,
     },
