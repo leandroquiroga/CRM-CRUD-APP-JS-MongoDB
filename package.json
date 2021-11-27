@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "dev": "parcel public/index.html",
     "prod": "parcel build public/*.html"
   },
