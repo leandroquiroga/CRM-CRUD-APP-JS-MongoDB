@@ -26,7 +26,7 @@
                         <li class="list-group-item items p-3">
                             <a href="./formulario.html" class="text-white text-decoration-none d-flex flex-row">
                                 <img src="./assets/addclient.svg" alt="add client" class="icon-user">
-                                <span class="ancla mx-2" id="new-users">Regitro</span>
+                                <span class="ancla mx-2" id="new-users">Registro</span>
                             </a>
                         </li>
                         <li class="list-group-item items p-3 ">
@@ -46,9 +46,49 @@
             </aside>
 
         </section>
-        <section class="menu-principal justify-content-center align-items-center p-3">
-            <article class="cards-client w-100"></article>
+        <section class="d-flex flex-column align-items-center justify-content-start menu-principal p-2">
+            <article class="w-75 alert alert-danger d-flex justify-content-center align-items-center p-2 visually-hidden" role="alert" id="alert-danger">
+                <img src="./assets/trash-2.svg" alt="check" class="icon-alert mx-2">
+                <div class="title-alert"></div>
+            </article>
+            <article class="cards-client visually-hidden"></article>
+            <article class="d-flex flex-column justify-content-center align-items-center my-5 data visually-hidden">
+                <h2 class="text-black justify-content-center text-center title-index"> No se han registrado ningun dato</h2>
+                <img src="./assets/meditation.svg" alt="crm" class="logo-crm">
+            </article> 
         </section>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="form_Modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Editar Cliente</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form_Edit" class="form-control p-3 d-flex flex-column justify-content-center">
+                            <label for="name" class="label-input"> Ingrese el nombre completo: </label>
+                            <input name="name" type="text" id="name" class="form-control my-2 shadow-none p-2" >
+                            <label for="email" class="label-input">Ingrese el email: </label>
+                            <input name="email" type="text" id="email" class="form-control my-2 shadow-none p-2" >
+                            <label for="puesto" class="label-input"> Ingrese su puesto: </label>
+                            <input name="puesto" type="text" id="puesto" class="form-control my-2 shadow-none p-2" >
+                            <label for="phone" class="label-input"> Ingrese el telefono: </label>
+                            <input name="phone" type="tel" id="phone" class="form-control my-2 shadow-none p-2" >
+                            <div class="buttons d-flex justify-content-around">
+                                <button type="submit" class="btn btn-dark w-100"> Editar </button>
+                            </div>
+                            <div class="msgErr mt-3 text-white d-flex justify-content-center rounded-3"></div>
+                        </form>
+                        <article class="w-100 alert alert-success mt-3 d-flex justify-content-center align-items-center p-2 visually-hidden" role="alert" id="alert-success-edit">
+                            <img src="./assets/check-circle.svg" alt="check" class="icon-alert mx-2">
+                            <div class="title-alert-edit"></div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Script -->
         <script src="./../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="./js/app/cliente.js"></script>
