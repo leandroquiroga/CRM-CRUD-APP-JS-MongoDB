@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "parcel public/index.html",
-    "prod": "parcel prod public/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prod": "parcel build public/*.html"
   },
   "keywords": [],
   "author": "",
